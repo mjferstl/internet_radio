@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Internetradio</title>
+<meta charset="utf-8"/>
+<meta http-equiv="content-language" content="de">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+	font-family:'Roboto';
+	font-size:18px;
+}
+.radio {
+	font-size:20px;
+	border-radius:2px;
+	font-family:'Roboto';
+	background-color:#4c90ff;
+	border-width:0;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+	color:black;
+	padding: 5px 15px 5px 15px;
+	width:200px;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+.button-container {
+	padding-left:20px;
+	padding-top:0px;
+}
+.volume {
+	font-size:20px;
+	border-radius:2px;
+	font-family:'Roboto';
+	background-color:#ffb14c;
+	border-width:0;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+	color:black;
+	padding: 5px 15px 5px 15px;
+	width:100px;
+	margin-top:2px;
+	margin-bottom:2px;
+}
+</style>
+</head>
+<body>
+
+<div>
+<audio id="stream" autoplay=true controls="" src=""></audio>
+</div>
+<div>
+	<h1>Lautstärke</h1>
+	<button class="volume" onclick="$('#stream').prop('volume','0.25')">25%</button>
+	<button class="volume" onclick="$('#stream').prop('volume','0.50')">50%</button>
+	<br>
+	<button class="volume" onclick="$('#stream').prop('volume','0.75')">75%</button>
+	<button class="volume" onclick="$('#stream').prop('volume','1.00')">100%</button>
+</div>
+<div>
+	<h1>Radio Bob</h1>
+	<div class="button-container">
+			<button class="radio" id="RadioBobLive" onclick="radio('RadioBobLive')">Livestream</button>
+			<button class="radio" id="RadioBobAlternative" onclick="radio('RadioBobAlternative')">Alternative</button>
+	</div>
+	<h1>Rock Antenne</h1>
+	<div class="button-container">
+			<button class="radio" id="RockAntenne" onclick="radio('RockAntenneLive')">Livestream</button>
+			<button class="radio" id="RockAntenneAlternative" onclick="radio('RockAntenneAlternative')">Alternative</button>
+			<button class="radio" id="RockAntennePunkrock" onclick="radio('RockAntennePunkrock')">Punkrock</button>
+	</div>
+</div>
+<script>
+var streamPC = []
+var streamMobile = [];
+
+streamPC['RadioBobLive'] = 'http://bob.hoerradar.de/radiobob-live-mp3-hq?sABC=5o1rqp4r%230%23r759o67rrror9nop2709r744po8378r8%23zrqvncynlre&amsparams=playerid:mediaplayer;skey:1528749134';
+streamMobile['RadioBobLive'] = 'http://bob.hoerradar.de/aac-radiobob?sABC=5o1rqp97%230%23r759o67rrror9nop2709r744po8378r8%23zrqvncynlre&amsparams=playerid:mediaplayer;skey:1528749207';
+streamPC['RadioBobAlternative'] = 'http://bob.hoerradar.de/radiobob-alternativerock-mp3-hq?sABC=5o1rqpno%230%23r759o67rrror9nop2709r744po8378r8%23zrqvncynlre&amsparams=playerid:mediaplayer;skey:1528749227';
+streamMobile['RadioBobAlternative'] = 'http://bob.hoerradar.de/radiobob-alternativerock-aac-mq?sABC=5o1rqprn%230%23r759o67rrror9nop2709r744po8378r8%23zrqvncynlre&amsparams=playerid:mediaplayer;skey:1528749290';
+streamPC['RockAntenne'] = 'http://mp3channels.webradio.rockantenne.de/rockantenne';
+streamMobile['RockAntenne'] = streamPC['RockAntenne'];
+streamPC['RockAntenneAlternative'] = 'http://mp3channels.webradio.rockantenne.de/alternative';
+streamMobile['RockAntenneAlternative'] = streamPC['RockAntenneAlternative'];
+streamPC['RockAntennePunkrock'] = 'http://mp3channels.webradio.rockantenne.de/punkrock';
+streamMobile['RockAntennePunkrock'] = streamPC['RockAntennePunkrock'];
+
+function radio(name) {
+	$('#stream').attr('src',streamPC[name]);
+}
+</script>
+</body>
