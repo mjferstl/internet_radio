@@ -2,5 +2,6 @@
 Simple website for listening to real good internet radio streams
 
 ## coming updates
-bootstrap 
+bootstrap for the website<br>
+split html, css and js files<br>
 more channels
