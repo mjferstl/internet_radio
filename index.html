@@ -25,6 +25,7 @@ body {
 	width:200px;
 	margin-top:5px;
 	margin-bottom:5px;
+	height=50px;
 }
 .button-container {
 	padding-left:20px;
@@ -70,6 +71,10 @@ body {
 			<button class="radio" id="RockAntenneAlternative" onclick="radio('RockAntenneAlternative')">Alternative</button>
 			<button class="radio" id="RockAntennePunkrock" onclick="radio('RockAntennePunkrock')">Punkrock</button>
 	</div>
+	<h1>AlternativeRadio.us</h1>
+	<div class="button-container">
+			<button class="radio" id="AlternativeRadioUS" onclick="radio('AlternativeRadioUS')">Livestream</button
+	</div>
 </div>
 <script>
 var streamPC = []
@@ -85,6 +90,8 @@ streamPC['RockAntenneAlternative'] = 'http://mp3channels.webradio.rockantenne.de
 streamMobile['RockAntenneAlternative'] = streamPC['RockAntenneAlternative'];
 streamPC['RockAntennePunkrock'] = 'http://mp3channels.webradio.rockantenne.de/punkrock';
 streamMobile['RockAntennePunkrock'] = streamPC['RockAntennePunkrock'];
+streamPC['AlternativeRadioUS'] = 'http://edge4.peta.live365.net/b87537_128mp3?listenerid=ac809ec6faf7851695cfc568a2577425&esPlayer&cb=983777.mp3';
+streamMobile['AlternativeRadioUS'] = streamPC['AlternativeRadioUS'];
 
 function radio(name) {
 	$('#stream').attr('src',streamPC[name]);
